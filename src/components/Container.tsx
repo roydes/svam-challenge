@@ -19,8 +19,6 @@ const Container = () => {
   const { id } = useParams();
   const path = useLocation().pathname.substring(1);
 
-
-
   useEffect(() => {
     dispatch(fetchRequest());
 
@@ -28,7 +26,7 @@ const Container = () => {
       .then((response) => response.json())
       .then((data) => dispatch(fetchSuccess(data)))
       .catch((error) => dispatch(fetchFailure(error)));
-    },[dispatch]
+    }, []
   );
 
   if (loading) {
